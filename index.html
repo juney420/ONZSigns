@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Cup '24</title>
+    <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .grid video,
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+    </style>
+    <script>
+        function copyToClipboard() {
+            const url = event.srcElement.src;
+            navigator.clipboard.writeText(url).then(() => {
+                Toastify({
+                    text: "Copied to clipboard: " + url,
+                    duration: 1000,
+                    close: true,
+                    gravity: "top",
+                    position: 'right',
+                }).showToast();
+            }, (err) => {
+                Toastify({
+                    text: "Failed to copy: " + err,
+                    duration: 2000,
+                    close: true,
+                    gravity: "top",
+                    position: 'right',
+                }).showToast();
+            });
+        }
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
+
+<body>
+    <main>
+        <div style="margin: auto; width:auto;">
+            <hgroup>
+                <h2>Onlynewbz Signs</h2>
+                <p> Click on a sign to copy the URL to your clipboard.</p>
+            </hgroup>
+        </div>
+        <header>
+            <h3>Adverts (2x1)</h3>
+        </header>
+        <section class="grid">
+
+            <img src="res/2x1/onz_lagoonpink.png">
+
+            <video src="res/2x1/onz_lagoonblue.webm" autoplay loop muted></video>
+
+            <img src="res/2x1/onz_lagoonblue.png" onclick="copyToClipboard()">
+
+            <video src="res/2x1/onz_hub.webm" autoplay loop muted></video>
+
+            <video src="res/2x1/onz_tokimemo.webm" autoplay loop muted></video>
+        </section>
+    </main>
+</body>
+<script>
+    function applyEventListeners(elements) {
+        elements.forEach(element => {
+            element.addEventListener('click', () => {
+                copyToClipboard();
+            });
+            elements.forEach(element => {
+                element.addEventListener('hover', () => {
+                    copyToClipboard();
+                });
+            });
+        });
+    }
+    const images = document.querySelectorAll('img');
+    const videos = document.querySelectorAll('video');
+
+    images.forEach(image => {
+        image.addEventListener('click', () => {
+            copyToClipboard();
+        });
+    });
+
+    videos.forEach(video => {
+        video.addEventListener('click', () => {
+            copyToClipboard();
+        });
+    });
+</script>
+
+</html>
